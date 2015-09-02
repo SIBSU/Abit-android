@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
     public static final String APP_PREFERENCES = "mysettings";
     private SharedPreferences mSettings;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,7 +140,7 @@ public class MainActivity extends Activity {
             if (result.equals("null")) {
                 //Ответ не получен
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "Проблемы с соединением", Toast.LENGTH_LONG);
+                        R.string.connect_error, Toast.LENGTH_LONG);
                 toast.show();
             } else {
                 //Нужно кое-что попарсить
