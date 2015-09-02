@@ -2,4 +2,7 @@
 <resources>
     <string name="title_activity_result">Result</string>
     <string name="connect_error">Connection error</string>
+    <string name="loginerror">Invalid number/password</string>
+    <string name="jsonerror">Internal error</string>
+    <string name="inputerror">Error</string>
 </resources>

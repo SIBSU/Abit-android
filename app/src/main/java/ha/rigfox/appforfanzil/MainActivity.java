@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
+    public static final String URL_SERVER = "http://ricknmorty.ru/sibsu/";
 
     private EditText IDinput;
     private EditText passwordInput;
@@ -79,7 +80,7 @@ public class MainActivity extends Activity {
         } else {
             //Сливаем чувака с ошибкой
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Ошибка", Toast.LENGTH_LONG);
+                    R.string.inputerror, Toast.LENGTH_LONG);
             toast.show();
         }
     }
@@ -105,7 +106,7 @@ public class MainActivity extends Activity {
             String password = params[1];
             //Создаем Http клиент
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost http = new HttpPost("http://ricknmorty.ru/sibsu/");
+            HttpPost http = new HttpPost(URL_SERVER);
 
             //Запиливаем отправляемые данные
             List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>(2);
@@ -152,16 +153,12 @@ public class MainActivity extends Activity {
                     String error = jObject.getString("error");
                     if (error.equals("login error")) {
                         Toast toast = Toast.makeText(getApplicationContext(),
-                                "Неверный номер/пароль.", Toast.LENGTH_LONG);
+                                R.string.loginerror, Toast.LENGTH_LONG);
                         toast.show();
                     } else {
-                        //Косяков скорее всего нет
-                        //Дропаем на другой экран
                         Intent intent = new Intent(MainActivity.this, Result.class);
 
-                        //Время допарсить всё
                         String name = jObject.getString("name");
-                        //Передаем туда имя
                         intent.putExtra("name", name);
 
                         if (jObject.has("math")) {
@@ -187,13 +184,12 @@ public class MainActivity extends Activity {
                             intent.putExtra("BioCount", BioCount);
                         }
 
-                        //Дроп
                         startActivity(intent);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "Внутренние ошибки", Toast.LENGTH_LONG);
+                            R.string.jsonerror, Toast.LENGTH_LONG);
                     toast.show();
                 }
             }
