@@ -13,14 +13,20 @@
         android:layout_height="match_parent"
         android:weightSum="1">
 
-        <TextView
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/resulttext"
-            android:layout_gravity="center_horizontal"
-            android:text="Test"
-            android:textSize="24dp"
-            android:textIsSelectable="false" />
+            android:id="@+id/scrollView" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resulttext"
+                android:layout_gravity="center_horizontal"
+                android:text="Test"
+                android:textSize="24dp"
+                android:textIsSelectable="false" />
+        </ScrollView>
 
     </LinearLayout>
 </RelativeLayout>

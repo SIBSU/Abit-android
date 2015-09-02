@@ -95,6 +95,7 @@ public class MainActivity extends Activity {
             progress.setTitle("Жди!");
             progress.setMessage("Такие дела...");
             progress.show();
+            progress.setCancelable(false);
         }
 
         @Override
