@@ -10,6 +10,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Привет, абитуриент! Это приложение поможет тебе оставаться в курсе своего места в рейтингах, а когда наступит время зачислений, приложение оповестит Вас о том, прошли вы на бюджет или нет. Для входа в приложение нужно ввести номер заявления и выданный Вам пароль. Если Вам не понравилось наше приложение, то &lt;s>идите нахуй&lt;/s> пишите нам на почту govnocoders@sibsu.ru" />
+        android:text="Привет, абитуриент! Это приложение поможет тебе оставаться в курсе своего места в рейтингах, а когда наступит время зачислений, приложение оповестит Вас о том, прошли вы на бюджет или нет. Для входа в приложение нужно ввести номер заявления и выданный Вам пароль."
+        android:textSize="20dp"
+        android:id="@+id/textView3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:adjustViewBounds="false"
+        android:src="@drawable/fregat1"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
