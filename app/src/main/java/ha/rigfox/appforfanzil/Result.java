@@ -26,16 +26,14 @@ public class Result extends Activity {
         if (sendIntent.hasExtra("MathScore")) {
             int MathScore = sendIntent.getIntExtra("MathScore", 0);
             int MathRating = sendIntent.getIntExtra("MathRating", 0);
-            ResultView += "Прикл. математика и информатика\n" + "Количество баллов: " + String.valueOf(MathScore) + "\n";
+            ResultView += "Прикл. математика и информатика\n" + "Количество баллов: " +
+                    String.valueOf(MathScore) + "\n";
             ResultView += "Место в рейтинге: " + String.valueOf(MathRating) + "\n\n";
 
-            if ( MathRating <= 8 )
-            {
+            if ( MathRating <= 8 ) {
                 ResultView += "Вы проходите на бюджет к нам, на ПМиИ!\n" +
                         "\n";
-            }
-            else
-            {
+            } else {
                 ResultView += "К сожалению, Вы не проходите на бюджет по данному направлению.\n" +
                         "\n";
             }
@@ -46,12 +44,9 @@ public class Result extends Activity {
             ResultView += "Биология\n" + "Количество баллов: " + String.valueOf(BioScore) + "\n";
             ResultView += "Место в рейтинге: " + String.valueOf(BioRating) + "\n\n";
 
-            if ( BioRating <= 8 )
-            {
+            if ( BioRating <= 8 ) {
                 ResultView += "Вы проходите на бюджет по напр. Биология!";
-            }
-            else
-            {
+            } else {
                 ResultView += "К сожалению, Вы не проходите на бюджет по данному направлению\n" +
                         "\n";
             }
