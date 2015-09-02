@@ -1,5 +1,5 @@
 package ha.rigfox.appforfanzil;  //test-lol
-                                //hello from GitHUB
+                                //hello from Github!
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
