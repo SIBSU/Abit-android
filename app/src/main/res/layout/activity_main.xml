@@ -58,5 +58,13 @@
             android:onClick="loginClick"
             android:layout_weight="0.04" />
 
+        <Button
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:text="ЯННП!"
+            android:id="@+id/Sbutton"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.04" />
+
     </LinearLayout>
 </RelativeLayout>
