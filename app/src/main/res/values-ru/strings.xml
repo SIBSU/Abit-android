@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Abit</string>
     <string name="title_activity_result">Результат</string>
     <string name="connect_error">Проблемы с соедининением</string>
 </resources>

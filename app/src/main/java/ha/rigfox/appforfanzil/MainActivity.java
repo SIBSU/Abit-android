@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -41,7 +40,6 @@ public class MainActivity extends Activity {
     public static final String APP_PREFERENCES = "mysettings";
     private SharedPreferences mSettings;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +57,31 @@ public class MainActivity extends Activity {
 
         IDinput.setText(SavedID);
         passwordInput.setText(SavedPass);
+    }
+
+    public void loginClick(View view) {
+        String ID = IDinput.getText().toString();
+        String password = passwordInput.getText().toString();
+
+        // Время проверять длину
+        if ((ID.length() > 0) && (password.length() > 0)) {
+            // Всё ОК
+            // Время делать запросы на серверы
+            if (remember.isChecked()) {
+                SharedPreferences.Editor editor = mSettings.edit();
+                editor.putString("ID", ID);
+                editor.putString("pass", password);
+                editor.apply();
+            }
+
+            RequestObj = new loginRequest();
+            RequestObj.execute(ID, password);
+        } else {
+            //Сливаем чувака с ошибкой
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Ошибка", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     private class loginRequest extends AsyncTask<String, Void, String> {
@@ -84,7 +107,7 @@ public class MainActivity extends Activity {
             HttpPost http = new HttpPost("http://ricknmorty.ru/sibsu/");
 
             //Запиливаем отправляемые данные
-            List nameValuePairs = new ArrayList(2);
+            List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("id", ID));
             nameValuePairs.add(new BasicNameValuePair("password", password));
 
@@ -114,10 +137,10 @@ public class MainActivity extends Activity {
             progress.dismiss();
 
             //Проверяем ответ
-            if (result == "null") {
+            if (result.equals("null")) {
                 //Ответ не получен
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "Проблемы с соединением", Toast.LENGTH_LONG);
+                        R.string.connect_error, Toast.LENGTH_LONG);
                 toast.show();
             } else {
                 //Нужно кое-что попарсить
@@ -169,31 +192,6 @@ public class MainActivity extends Activity {
                     toast.show();
                 }
             }
-        }
-    }
-
-    public void loginClick(View view) {
-        String ID = IDinput.getText().toString();
-        String password = passwordInput.getText().toString();
-
-        // Время проверять длину
-        if ((ID.length() > 0) && (password.length() > 0)) {
-            // Всё ОК
-            // Время делать запросы на серверы
-            if (remember.isChecked()) {
-                SharedPreferences.Editor editor = mSettings.edit();
-                editor.putString("ID", ID);
-                editor.putString("pass", password);
-                editor.apply();
-            }
-
-            RequestObj = new loginRequest();
-            RequestObj.execute(ID, password);
-        } else {
-            //Сливаем чувака с ошибкой
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Ошибка", Toast.LENGTH_LONG);
-            toast.show();
         }
     }
 
