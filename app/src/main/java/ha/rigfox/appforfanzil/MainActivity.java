@@ -1,4 +1,4 @@
-package ha.rigfox.appforfanzil;
+package ha.rigfox.appforfanzil;  //test
 
 import android.app.Activity;
 import android.app.ProgressDialog;
