@@ -169,9 +169,11 @@ public class MainActivity extends Activity {
                             JSONObject mathObj = jObject.getJSONObject("math");
                             int MathScore = mathObj.getInt("score");
                             int MathRating = mathObj.getInt("rating");
+                            int MathCount = mathObj.getInt("count");
                             //Передаем результаты
                             intent.putExtra("MathScore", MathScore);
                             intent.putExtra("MathRating", MathRating);
+                            intent.putExtra("MathCount", MathCount);
                         }
 
                         if (jObject.has("bio")) {
@@ -179,8 +181,10 @@ public class MainActivity extends Activity {
                             JSONObject bioObj = jObject.getJSONObject("bio");
                             int BioScore = bioObj.getInt("score");
                             int BioRating = bioObj.getInt("rating");
+                            int BioCount = bioObj.getInt("count");
                             intent.putExtra("BioScore", BioScore);
                             intent.putExtra("BioRating", BioRating);
+                            intent.putExtra("BioCount", BioCount);
                         }
 
                         //Дроп
