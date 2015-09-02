@@ -37,7 +37,6 @@ public class MainActivity extends Activity {
     private CheckBox remember;
     private loginRequest RequestObj;
     private ProgressDialog progress;
-    private Button Kbutton;
 
     public static final String APP_PREFERENCES = "mysettings";
     private SharedPreferences mSettings;
@@ -59,19 +58,12 @@ public class MainActivity extends Activity {
 
         IDinput.setText(SavedID);
         passwordInput.setText(SavedPass);
-
-        //кнопка
-        Kbutton = (Button)findViewById(R.id.Sbutton);
-        Kbutton.setOnClickListener((View.OnClickListener) this);
     }
 
-
-
-
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-            startActivity(intent);
-        }
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        startActivity(intent);
+    }
 
     public void loginClick(View view) {
         String ID = IDinput.getText().toString();
