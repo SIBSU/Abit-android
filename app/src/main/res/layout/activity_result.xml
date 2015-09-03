@@ -10,12 +10,18 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="63dp"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Имя"
+        android:text="Блаблаблабла Блаблабла"
         android:id="@+id/name"
         android:layout_gravity="center_horizontal"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+        android:longClickable="false" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_gravity="center_horizontal" />
 
     <ListView
         android:layout_width="match_parent"
